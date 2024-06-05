@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreateTopoindexDialogBase</class>
+ <widget class="QDialog" name="CreateTopoindexDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>437</width>
+    <height>495</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Create Topoindex.ini File for TRIGRS Map</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../../../../../../../Documents/QGISPlugins/create_topoindex v1/icon.png</normaloff>../../../../../../../../../Documents/QGISPlugins/create_topoindex v1/icon.png</iconset>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>126</y>
+     <width>150</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Exponent</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>156</y>
+     <width>150</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Iterations</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>216</y>
+     <width>150</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Flow Direction</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>186</y>
+     <width>150</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>DEM</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>368</y>
+     <width>150</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Flow Direction remap</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>308</y>
+     <width>150</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cell Index</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>338</y>
+     <width>150</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cell Number</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>246</y>
+     <width>150</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save Listing Down Slope</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>398</y>
+     <width>150</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ID Code</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spbExponent">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>126</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>250</number>
+   </property>
+   <property name="value">
+    <number>25</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spbIteration">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>156</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>10000</number>
+   </property>
+   <property name="value">
+    <number>100</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmbListingDownSlope">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>246</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>T</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>F</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>264</x>
+     <y>249</y>
+     <width>130</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>T:True or F: False</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmbCellIndex">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>306</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>T</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>F</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>266</x>
+     <y>309</y>
+     <width>130</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>T:True or F: False</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmbCellNumber">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>336</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>T</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>F</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>266</x>
+     <y>339</y>
+     <width>130</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>T:True or F: False</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmbFlowDirectionRemap">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>365</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>T</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>F</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>267</x>
+     <y>368</y>
+     <width>130</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>T:True or F: False</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leIdCode">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>398</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Lemb1</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pbCreateTopoindexIni">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>430</y>
+     <width>170</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Create TopoIndex.ini</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leOutputFile">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>458</y>
+     <width>281</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label10">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>37</y>
+     <width>150</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Project Name</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leProjectName">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>37</y>
+     <width>231</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Project of...</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label10_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>67</y>
+     <width>150</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Rows</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label10_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>97</y>
+     <width>150</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Columns</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spbColumns">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>97</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>10000</number>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spbRows">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>67</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>10000</number>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>276</y>
+     <width>150</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save Grid Down Slope</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmbGridDownSlope">
+   <property name="geometry">
+    <rect>
+     <x>188</x>
+     <y>276</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>T</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>F</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>265</x>
+     <y>279</y>
+     <width>130</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>T:True or F: False</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pbCalculateTopoindex">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>430</y>
+     <width>170</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Calculate TopoIndex</string>
+   </property>
+  </widget>
+  <widget class="QgsMapLayerComboBox" name="mlcDEM">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>187</y>
+     <width>160</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QgsMapLayerComboBox" name="mlcFlowDirection">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>217</y>
+     <width>160</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>460</y>
+     <width>75</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>74</x>
+     <y>10</y>
+     <width>311</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Create and Calculate TopoIndex.ini</string>
+   </property>
+  </widget>
+  <zorder>leOutputFile</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_7</zorder>
+  <zorder>label_8</zorder>
+  <zorder>label_9</zorder>
+  <zorder>spbExponent</zorder>
+  <zorder>spbIteration</zorder>
+  <zorder>cmbListingDownSlope</zorder>
+  <zorder>label_10</zorder>
+  <zorder>cmbCellIndex</zorder>
+  <zorder>label_11</zorder>
+  <zorder>cmbCellNumber</zorder>
+  <zorder>label_12</zorder>
+  <zorder>cmbFlowDirectionRemap</zorder>
+  <zorder>label_13</zorder>
+  <zorder>leIdCode</zorder>
+  <zorder>pbCreateTopoindexIni</zorder>
+  <zorder>label10</zorder>
+  <zorder>leProjectName</zorder>
+  <zorder>label10_2</zorder>
+  <zorder>label10_3</zorder>
+  <zorder>spbColumns</zorder>
+  <zorder>spbRows</zorder>
+  <zorder>label_14</zorder>
+  <zorder>cmbGridDownSlope</zorder>
+  <zorder>label_15</zorder>
+  <zorder>pbCalculateTopoindex</zorder>
+  <zorder>mlcDEM</zorder>
+  <zorder>mlcFlowDirection</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>label_16</zorder>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsMapLayerComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsmaplayercombobox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>pressed()</signal>
+   <receiver>CreateTopoindexDialogBase</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>411</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>190</x>
+     <y>230</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

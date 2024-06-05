@@ -1,0 +1,9 @@
+Instructions to use the plugin: Let's do the steps:
+1. On Drive C, create the folder TRIGRS.
+2. In the TRIGRS folder, create a folder with the name of the data, results, and input.
+3. Copy TopoIndex.exe and TRIGRS.exe file into the TRIGRS folder.
+4. Copy the dem, flow direction, and slope asci file into folder data.
+5. Install the plugin create_topoindex in QGIS.
+6. Save TopoIndex.ini in the Document folder.
+
+Enjoy the plugin.
