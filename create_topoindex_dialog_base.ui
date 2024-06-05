@@ -314,9 +314,9 @@
   <widget class="QPushButton" name="pbCreateTopoindexIni">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>30</x>
      <y>430</y>
-     <width>170</width>
+     <width>190</width>
      <height>30</height>
     </rect>
    </property>
@@ -473,14 +473,14 @@
   <widget class="QPushButton" name="pbCalculateTopoindex">
    <property name="geometry">
     <rect>
-     <x>234</x>
+     <x>224</x>
      <y>430</y>
-     <width>170</width>
+     <width>190</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>Calculate TopoIndex</string>
+    <string>Calculate TopoIndex.exe</string>
    </property>
   </widget>
   <widget class="QgsMapLayerComboBox" name="mlcDEM">
@@ -526,9 +526,9 @@
   <widget class="QLabel" name="label_16">
    <property name="geometry">
     <rect>
-     <x>74</x>
+     <x>80</x>
      <y>10</y>
-     <width>311</width>
+     <width>341</width>
      <height>16</height>
     </rect>
    </property>
@@ -540,7 +540,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Create and Calculate TopoIndex.ini</string>
+    <string>Create and Calculate TopoIndex</string>
    </property>
   </widget>
   <zorder>leOutputFile</zorder>
