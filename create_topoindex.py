@@ -168,7 +168,7 @@ class CreateTopoindex:
         icon_path = ':/plugins/create_topoindex/icon.png'
         self.add_action(
             icon_path,
-            text=self.tr(u'Create Topoindex'),
+            text=self.tr(u'Toolbar Create Topoindex'),
             callback=self.run,
             parent=self.iface.mainWindow())
 
@@ -191,18 +191,19 @@ class CreateTopoindex:
         if self.first_start == True:
             self.first_start = False
             self.dlg = CreateTopoindexDialog()
-            self.dlg.pbCreateTopoindexIni.clicked.connect(self.create_topoindex_ini)
-            self.dlg.pbCalculateTopoindex.clicked.connect(self.call_exe_file)
-            self.dlg.leOutputFile.hide()
-            self.dlg.pbCalculateTopoindex.hide()
+            self.dlg.pbCreateTopoindexIni1.clicked.connect(self.create_topoindex_ini)
+            self.dlg.pbCalculateTopoindex1.clicked.connect(self.call_exe_file)
+            self.dlg.leOutputFile1.hide()
+            self.dlg.pbCalculateTopoindex1.hide()
+            #
 
         #baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
-        self.dlg.mlcDEM.setFilters(QgsMapLayerProxyModel.RasterLayer)
-        self.dlg.mlcDEM.currentTextChanged.connect(self.fill_rows_cols_dem_layer)
+        self.dlg.mlcDEM1.setFilters(QgsMapLayerProxyModel.RasterLayer)
+        self.dlg.mlcDEM1.currentTextChanged.connect(self.fill_rows_cols_dem_layer)
 
         # baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
-        self.dlg.mlcFlowDirection.setFilters(QgsMapLayerProxyModel.RasterLayer)
-        self.dlg.mlcFlowDirection.currentTextChanged.connect(self.fill_rows_cols_flow_layer)
+        self.dlg.mlcFlowDirection1.setFilters(QgsMapLayerProxyModel.RasterLayer)
+        self.dlg.mlcFlowDirection1.currentTextChanged.connect(self.fill_rows_cols_flow_layer)
 
         # show the dialog
         self.dlg.show()
@@ -223,72 +224,72 @@ class CreateTopoindex:
 
     def create_topoindex_ini(self):
         filename, _filter = QFileDialog.getSaveFileName(self.dlg, "Pilih output file", "", '*.ini')
-        self.dlg.leOutputFile.setText(filename)
+        self.dlg.leOutputFile1.setText(filename)
 
-        filename = self.dlg.leOutputFile.text()
+        filename = self.dlg.leOutputFile1.text()
         with open(filename, 'w') as output_file:
             line = "Name of project (up to 255 characters)" + '\n'
             output_file.write(line)
 
-            project_name = self.dlg.leProjectName.text()
+            project_name = self.dlg.leProjectName1.text()
             line = ''.join(project_name + '\n')
             output_file.write(line)
 
             line = "Rows, Columns, flow-direction numbering scheme (ESRI=1, TopoIndex=2)" + '\n'
             output_file.write(line)
 
-            rows = self.dlg.spbRows.text()
-            columns = self.dlg.spbColumns.text()
+            rows = self.dlg.leRows1.text()
+            columns = self.dlg.leColumns1.text()
             line = ''.join(rows + ', ' + columns + ', 1' + '\n')
             output_file.write(line)
 
             line = "Exponent, Number of iterations" + '\n'
             output_file.write(line)
 
-            exponent = self.dlg.spbExponent.text()
-            iteration = self.dlg.spbIteration.text()
+            exponent = self.dlg.spbExponent1.text()
+            iteration = self.dlg.spbIteration1.text()
             line = ''.join(exponent + ', ' + iteration + '\n')
             output_file.write(line)
 
             line = "Name of elevation grid file" + '\n'
             output_file.write(line)
-            DEM = self.dlg.mlcDEM.currentText()
+            DEM = self.dlg.mlcDEM1.currentText()
             line = ''.join("c:\\TRIGRS\\data\\" + DEM + ".asc" + '\n')
             output_file.write(line)
 
             line = "Name of direction grid" + '\n'
             output_file.write(line)
-            flowDirection = self.dlg.mlcFlowDirection.currentText()
+            flowDirection = self.dlg.mlcFlowDirection1.currentText()
             line = ''.join("c:\\TRIGRS\\data\\"  + flowDirection + ".asc" + '\n')
             output_file.write(line)
 
             line = "Save listing of D8 downslope receptor cells?  Enter T (.true.) or F (.false.)" + '\n'
             output_file.write(line)
-            listingDownSlope = self.dlg.cmbListingDownSlope.currentText()
+            listingDownSlope = self.dlg.cmbListingDownSlope1.currentText()
             line = ''.join(listingDownSlope + '\n')
             output_file.write(line)
 
             line = "Save grid of D8 downslope receptor cells? Enter T (.true.) or F (.false.)" + '\n'
             output_file.write(line)
-            gridDownSlope = self.dlg.cmbGridDownSlope.currentText()
+            gridDownSlope = self.dlg.cmbGridDownSlope1.currentText()
             line = ''.join(gridDownSlope + '\n')
             output_file.write(line)
 
             line = "Save cell index number grid ? Enter T (.true.) or F (.false.)" + '\n'
             output_file.write(line)
-            cellIndex = self.dlg.cmbCellIndex.currentText()
+            cellIndex = self.dlg.cmbCellIndex1.currentText()
             line = ''.join(cellIndex + '\n')
             output_file.write(line)
 
             line = "Save list of cell number and corresponding index number?  Enter T (.true.) or F (.false.)" + '\n'
             output_file.write(line)
-            cellNumber = self.dlg.cmbCellNumber.currentText()
+            cellNumber = self.dlg.cmbCellNumber1.currentText()
             line = ''.join(cellNumber + '\n')
             output_file.write(line)
 
             line = "Save flow-direction grid remapped from ESRI to TopoIndex? Enter T (.true.) or F (.false.)" + '\n'
             output_file.write(line)
-            flowDirectionRemap = self.dlg.cmbFlowDirectionRemap.currentText()
+            flowDirectionRemap = self.dlg.cmbFlowDirectionRemap1.currentText()
             line = ''.join(flowDirectionRemap + '\n')
             output_file.write(line)
 
@@ -299,33 +300,34 @@ class CreateTopoindex:
 
             line = "ID code for output files? (8 characters or less)" + '\n'
             output_file.write(line)
-            IdCode = self.dlg.leIdCode.text()
+            IdCode = self.dlg.leIdCode1.text()
             line = ''.join(IdCode + '\n')
             output_file.write(line)
 
-        self.dlg.pbCalculateTopoindex.show()
+        self.dlg.pbCalculateTopoindex1.show()
+
         self.iface.messageBar().pushMessage("Berhasil", "Output file ditulis sebagai" + filename, level=Qgis.Success, duration=3)
         QMessageBox.information(self.dlg, "Informasi", "File Topoindex.ini berhasil dibuat")
         
     def fill_rows_cols_dem_layer(self):
         # read layer
-        layer = self.dlg.mlcDEM.currentText()
+        layer = self.dlg.mlcDEM1.currentText()
         rlayer = QgsProject.instance().mapLayersByName(layer)[0]
 
         cols = rlayer.width()
         rows = rlayer.height()
-        self.dlg.spbRows.setValue(rows)
-        self.dlg.spbColumns.setValue(cols)
+        self.dlg.leRows1.setText(str(rows))
+        self.dlg.leColumns1.setText(str(cols))
 
     def fill_rows_cols_flow_layer(self):
         # read layer
-        layer = self.dlg.mlcFlowDirection.currentText()
+        layer = self.dlg.mlcFlowDirection1.currentText()
         rlayer = QgsProject.instance().mapLayersByName(layer)[0]
 
         cols = rlayer.width()
         rows = rlayer.height()
-        self.dlg.spbRows.setValue(rows)
-        self.dlg.spbColumns.setValue(cols)
+        self.dlg.leRows1.setText(str(rows))
+        self.dlg.leColumns1.setText(str(cols))
 
 
     def call_exe_file(self):
