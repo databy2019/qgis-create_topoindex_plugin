@@ -27,7 +27,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -864,26 +864,6 @@
        <string>Cohesion grid (cfil)</string>
       </property>
      </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_14">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>87</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_15">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>139</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_72">
       <property name="geometry">
        <rect>
@@ -895,16 +875,6 @@
       </property>
       <property name="text">
        <string>Phi-angle grid (phifil)</string>
-      </property>
-     </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_16">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>187</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="label_73">
@@ -920,16 +890,6 @@
        <string>Depth grid (zfil)</string>
       </property>
      </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_17">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>240</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_74">
       <property name="geometry">
        <rect>
@@ -941,16 +901,6 @@
       </property>
       <property name="text">
        <string>Total unit weight of soil grid (uwsfil)</string>
-      </property>
-     </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_18">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>291</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="label_75">
@@ -966,16 +916,6 @@
        <string>Initial depth of water table grid   (depfil)</string>
       </property>
      </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_19">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>341</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_76">
       <property name="geometry">
        <rect>
@@ -989,16 +929,6 @@
        <string>Diffusivity grid  (diffil)</string>
       </property>
      </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_22">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>37</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_79">
       <property name="geometry">
        <rect>
@@ -1010,16 +940,6 @@
       </property>
       <property name="text">
        <string>Slope angle grid (slofil) </string>
-      </property>
-     </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_25">
-      <property name="geometry">
-       <rect>
-        <x>286</x>
-        <y>187</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="label_83">
@@ -1048,16 +968,6 @@
        <string>Grid of D8 runoff receptor cell numbers (nxtfil)</string>
       </property>
      </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_24">
-      <property name="geometry">
-       <rect>
-        <x>286</x>
-        <y>139</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_78">
       <property name="geometry">
        <rect>
@@ -1069,16 +979,6 @@
       </property>
       <property name="text">
        <string>Initial infiltration rate grid   (rizerofil)</string>
-      </property>
-     </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_20">
-      <property name="geometry">
-       <rect>
-        <x>286</x>
-        <y>37</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="label_82">
@@ -1094,16 +994,6 @@
        <string>List of all runoff receptor cells  (dscfil)</string>
       </property>
      </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_21">
-      <property name="geometry">
-       <rect>
-        <x>286</x>
-        <y>87</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_81">
       <property name="geometry">
        <rect>
@@ -1117,16 +1007,6 @@
        <string>List of runoff weighting factors  (wffil)</string>
       </property>
      </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_26">
-      <property name="geometry">
-       <rect>
-        <x>286</x>
-        <y>240</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_77">
       <property name="geometry">
        <rect>
@@ -1138,26 +1018,6 @@
       </property>
       <property name="text">
        <string>Saturated hydraulic conductivity grid   (ksfil)</string>
-      </property>
-     </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_23">
-      <property name="geometry">
-       <rect>
-        <x>286</x>
-        <y>291</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QgsFieldComboBox" name="mFieldComboBox_27">
-      <property name="geometry">
-       <rect>
-        <x>286</x>
-        <y>341</y>
-        <width>200</width>
-        <height>27</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="label_84">
@@ -1466,6 +1326,185 @@
       </property>
       <property name="text">
        <string>Create TRIGRS.exe</string>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>140</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>190</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>240</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>290</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>340</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_8">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>240</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_9">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>40</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_10">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>290</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_11">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>190</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_12">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>340</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_13">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>140</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_14">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>90</y>
+        <width>201</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="allowEmptyLayer">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -1832,11 +1871,6 @@
   </widget>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>QgsFieldComboBox</class>
-   <extends>QComboBox</extends>
-   <header>qgsfieldcombobox.h</header>
-  </customwidget>
   <customwidget>
    <class>QgsMapLayerComboBox</class>
    <extends>QComboBox</extends>
