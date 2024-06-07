@@ -215,9 +215,11 @@ class CreateTopoindex:
         self.dlg.mlcDEM1.setFilters(QgsMapLayerProxyModel.RasterLayer)
         self.dlg.mlcDEM1.currentTextChanged.connect(self.fill_rows_cols_dem_layer)
 
-        # baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
         self.dlg.mlcFlowDirection1.setFilters(QgsMapLayerProxyModel.RasterLayer)
-        self.dlg.mlcFlowDirection1.currentTextChanged.connect(self.fill_rows_cols_flow_layer)
+        self.dlg.mlcFlowDirection1.currentTextChanged.connect(self.fill_rows_cols_dem_layer)
+
+        #self.dlg.fwDEM1.fileChanged.connect(self.fill_rows_cols_dem_layer)
+        #self.dlg.fwFlowDirection1.fileChanged.connect(self.fill_rows_cols_flow_layer)
 
         # baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
         self.dlg.mlcSlofil2.setFilters(QgsMapLayerProxyModel.RasterLayer)
@@ -599,11 +601,6 @@ class CreateTopoindex:
             output_file.write(line)
             flag2 = self.dlg.cmbFlag2.currentText()
             output_file.write(flag2 + '\n')
-
-
-
-
-
 
         self.dlg.pbCalculateTrigrs2.show()
         self.iface.messageBar().pushMessage("Berhasil", "Output file ditulis sebagai" + filename, level=Qgis.Success, duration=3)
