@@ -26,6 +26,9 @@ from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QFileDialog, QMessageBox
 #Add QgsProject
 from qgis.core import QgsProject, Qgis, QgsMapLayer, QgsMapLayerProxyModel
+#Tambahan processing
+from qgis import processing
+from qgis.core import QgsCoordinateReferenceSystem
 
 # Initialize Qt resources from file resources.py
 from .resources import *
@@ -199,7 +202,11 @@ class CreateTopoindex:
             self.dlg.leOutputFile2.hide()
             self.dlg.pbCalculateTopoindex1.hide()
             self.dlg.pbCalculateTrigrs2.hide()
-            self.dlg.mlcSlofil2.setLayer(None)
+            # Mengatur tipe penyimpanan file ke direktori
+            self.dlg.fwOutput1.setStorageMode(self.dlg.fwOutput1.StorageMode.GetDirectory)
+            self.dlg.fwOutput2.setStorageMode(self.dlg.fwOutput2.StorageMode.GetDirectory)
+
+            #self.dlg.mlcSlofil2.setLayer(None)
             self.dlg.mlcCfil2.setLayer(None)
             self.dlg.mlcPhifil2.setLayer(None)
             self.dlg.mlcZfil2.setLayer(None)
@@ -209,21 +216,27 @@ class CreateTopoindex:
             self.dlg.mlcKsfil2.setLayer(None)
             self.dlg.mlcRizerofil2.setLayer(None)
             self.dlg.mlcRifil2.setLayer(None)
-            #
 
         #baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
-        self.dlg.mlcDEM1.setFilters(QgsMapLayerProxyModel.RasterLayer)
-        self.dlg.mlcDEM1.currentTextChanged.connect(self.fill_rows_cols_dem_layer)
+        #self.dlg.mlcDEM1.setFilters(QgsMapLayerProxyModel.RasterLayer)
+        #self.dlg.mlcDEM1.currentTextChanged.connect(self.fill_rows_cols_dem_layer)
+        #self.dlg.mlcFlowDirection1.setFilters(QgsMapLayerProxyModel.RasterLayer)
+        #self.dlg.mlcFlowDirection1.currentTextChanged.connect(self.fill_rows_cols_dem_layer)
 
-        self.dlg.mlcFlowDirection1.setFilters(QgsMapLayerProxyModel.RasterLayer)
-        self.dlg.mlcFlowDirection1.currentTextChanged.connect(self.fill_rows_cols_dem_layer)
+        self.dlg.fwDEM1.fileChanged.connect(self.fill_rows_cols_dem_file_layer)
+        # Mengatur filter untuk menampilkan semua jenis file (semua ekstensi)
+        #self.fwDEM1.setFilter("All files (*.*);;JPEG (*.jpg *.jpeg);;TIFF (*.tif)")
+        self.dlg.fwDEM1.setFilter("ASCI (*.asc)")
 
-        #self.dlg.fwDEM1.fileChanged.connect(self.fill_rows_cols_dem_layer)
-        #self.dlg.fwFlowDirection1.fileChanged.connect(self.fill_rows_cols_flow_layer)
+        self.dlg.fwFlowDirection1.fileChanged.connect(self.fill_rows_cols_flow_file_layer)
+        self.dlg.fwFlowDirection1.setFilter("ASCI (*.asc)")
+
+        #
+        self.dlg.fwSlofil2.fileChanged.connect(self.fill_imax_rows_cols_flow_layer)
 
         # baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
-        self.dlg.mlcSlofil2.setFilters(QgsMapLayerProxyModel.RasterLayer)
-        self.dlg.mlcSlofil2.currentTextChanged.connect(self.fill_imax_rows_cols_flow_layer)
+        #self.dlg.mlcSlofil2.setFilters(QgsMapLayerProxyModel.RasterLayer)
+        #self.dlg.mlcSlofil2.currentTextChanged.connect(self.fill_imax_rows_cols_flow_layer)
 
         # show the dialog
         self.dlg.show()
@@ -274,14 +287,14 @@ class CreateTopoindex:
 
             line = "Name of elevation grid file" + '\n'
             output_file.write(line)
-            DEM = self.dlg.mlcDEM1.currentText()
-            line = ''.join("c:\\TRIGRS\\data\\" + DEM + ".asc" + '\n')
+            DEM = self.dlg.fwDEM1.filePath()
+            line = ''.join(DEM + '\n')
             output_file.write(line)
 
             line = "Name of direction grid" + '\n'
             output_file.write(line)
-            flowDirection = self.dlg.mlcFlowDirection1.currentText()
-            line = ''.join("c:\\TRIGRS\\data\\"  + flowDirection + ".asc" + '\n')
+            flowDirection = self.dlg.fwFlowDirection1.filePath()
+            line = ''.join(flowDirection + '\n')
             output_file.write(line)
 
             line = "Save listing of D8 downslope receptor cells?  Enter T (.true.) or F (.false.)" + '\n'
@@ -316,7 +329,8 @@ class CreateTopoindex:
 
             line = "Name of folder to store output?" + '\n'
             output_file.write(line)
-            line = ''.join("c:\\TRIGRS\\result\\" + '\n')
+            outputFolder = self.dlg.fwOutput1.filePath()
+            line = ''.join(outputFolder + '\\'+ '\n')
             output_file.write(line)
 
             line = "ID code for output files? (8 characters or less)" + '\n'
@@ -418,8 +432,8 @@ class CreateTopoindex:
             #Slofil
             line = "File name of slope angle grid (slofil)" + '\n'
             output_file.write(line)
-            line = self.dlg.mlcSlofil2.currentText()
-            output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwSlofil2.filePath()
+            output_file.write(line + '\n')
 
             #Cfil
             line = "File name of cohesion grid (cfil)" + '\n'
@@ -546,7 +560,8 @@ class CreateTopoindex:
             #Folder result
             line = "Folder where output grid files will be stored  (folder)" + '\n'
             output_file.write(line)
-            output_file.write("c:\\TRIGRS\\result\\" + '\n')
+            outputFolder2 = self.dlg.fwOutput2.filePath()
+            output_file.write(outputFolder2 + "\\" + '\n')
 
             # ID Suffix
             line = "Identification code to be added to names of output files (suffix)" + '\n'
@@ -626,26 +641,84 @@ class CreateTopoindex:
         self.dlg.leRows1.setText(str(rows))
         self.dlg.leColumns1.setText(str(cols))
 
+    # Method menampilkan nilai row col dari file DEM yang dibuka
+    def fill_rows_cols_dem_file_layer(self):
+        # read layer path
+        layer_path = self.dlg.fwDEM1.filePath()
+        # Check if a layer with the given name exists in the current project
+        layer_name = 'DEM_file'
+        layers = QgsProject.instance().mapLayersByName(layer_name)
+        exists = bool(layers)
+        print(exists)
+
+        for layer in QgsProject.instance().mapLayers().values():
+            if layer.name() == "DEM_file":
+                QgsProject.instance().removeMapLayers([layer.id()])
+        raster_layer = self.iface.addRasterLayer(layer_path, 'DEM_file')
+        if raster_layer.isValid():
+            print("Layer was loaded successfully!")
+            cols = raster_layer.width()
+            rows = raster_layer.height()
+            self.dlg.leRows1.setText(str(rows))
+            self.dlg.leColumns1.setText(str(cols))
+        else:
+            print("Unable to read basename and file path - Your string is probably invalid")
+
+    #Method menampilkan nilai row col dari file flow direction yang dibuka
+    def fill_rows_cols_flow_file_layer(self):
+        # read layer path
+        layer_path = self.dlg.fwFlowDirection1.filePath()
+        # Check if a layer with the given name exists in the current project
+        layer_name = 'Flow_Direction_file'
+        layers = QgsProject.instance().mapLayersByName(layer_name)
+        exists = bool(layers)
+        print(exists)
+
+        for layer in QgsProject.instance().mapLayers().values():
+            if layer.name() == "Flow_Direction_file":
+                QgsProject.instance().removeMapLayers([layer.id()])
+        raster_layer = self.iface.addRasterLayer(layer_path, 'Flow_Direction_file')
+        if raster_layer.isValid():
+            print("Layer was loaded successfully!")
+            cols = raster_layer.width()
+            rows = raster_layer.height()
+            self.dlg.leRows1.setText(str(rows))
+            self.dlg.leColumns1.setText(str(cols))
+        else:
+            print("Unable to read basename and file path - Your string is probably invalid")
+
     def fill_imax_rows_cols_flow_layer(self):
-        #read layer
-        layer = self.dlg.mlcSlofil2.currentText()
-        rlayer = QgsProject.instance().mapLayersByName(layer)[0]
+        # read layer path
+        layer_path = self.dlg.fwSlofil2.filePath()
+        # Check if a layer with the given name exists in the current project
+        layer_name = 'Slope_file'
+        layers = QgsProject.instance().mapLayersByName(layer_name)
+        exists = bool(layers)
+        print(exists)
 
-        column2 = rlayer.width()
-        row2 = rlayer.height()
-        imax2 = 844278
-        nwf2 = 844278
-        self.dlg.leImax2.setText(str(imax2))
-        self.dlg.leRow2.setText(str(row2))
-        self.dlg.leColumn2.setText(str(column2))
-        self.dlg.leNwf2.setText(str(nwf2))
-
+        for layer in QgsProject.instance().mapLayers().values():
+            if layer.name() == "Slope_file":
+                QgsProject.instance().removeMapLayers([layer.id()])
+        raster_layer = self.iface.addRasterLayer(layer_path, 'Slope_file')
+        if raster_layer.isValid():
+            print("Layer was loaded successfully!")
+            column2 = raster_layer.width()
+            row2 = raster_layer.height()
+            imax2 = 844278
+            nwf2 = 844278
+            self.dlg.leImax2.setText(str(imax2))
+            self.dlg.leRow2.setText(str(row2))
+            self.dlg.leColumn2.setText(str(column2))
+            self.dlg.leNwf2.setText(str(nwf2))
+        else:
+            print("Unable to read basename and file path - Your string is probably invalid")
 
     def call_topoindex_exe_file(self):
         try:
             # Replace with the actual path to your external program
-            external_program_path = "C:/TRIGRS/TopoIndex.exe"
+            external_program_path = self.dlg.fwExeFile1.filePath()
             subprocess.call([external_program_path, "arg1", "arg2"])
+            self.dlg.pbCalculateTopoindex1.hide()
         except Exception as e:
             print(f"Error running external program: {e}")
 
@@ -656,5 +729,6 @@ class CreateTopoindex:
             subprocess.call([external_program_path, "arg1", "arg2"])
         except Exception as e:
             print(f"Error running external program: {e}")
+
 
 

@@ -27,7 +27,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -52,7 +52,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>236</y>
+        <y>233</y>
         <width>120</width>
         <height>20</height>
        </rect>
@@ -88,16 +88,6 @@
       </property>
       <property name="text">
        <string>Exponent</string>
-      </property>
-     </widget>
-     <widget class="QgsMapLayerComboBox" name="mlcFlowDirection1">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>202</y>
-        <width>181</width>
-        <height>22</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="lColumns">
@@ -136,21 +126,21 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>236</y>
+        <y>233</y>
         <width>81</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string>ID</string>
       </property>
      </widget>
      <widget class="QGroupBox" name="gbTopoIndex">
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>268</y>
-        <width>381</width>
+        <y>265</y>
+        <width>391</width>
         <height>160</height>
        </rect>
       </property>
@@ -166,7 +156,7 @@
       <widget class="QComboBox" name="cmbFlowDirectionRemap1">
        <property name="geometry">
         <rect>
-         <x>303</x>
+         <x>327</x>
          <y>129</y>
          <width>51</width>
          <height>20</height>
@@ -188,7 +178,7 @@
         <rect>
          <x>10</x>
          <y>102</y>
-         <width>270</width>
+         <width>300</width>
          <height>18</height>
         </rect>
        </property>
@@ -201,7 +191,7 @@
         <rect>
          <x>10</x>
          <y>76</y>
-         <width>270</width>
+         <width>300</width>
          <height>18</height>
         </rect>
        </property>
@@ -214,7 +204,7 @@
         <rect>
          <x>10</x>
          <y>50</y>
-         <width>270</width>
+         <width>300</width>
          <height>18</height>
         </rect>
        </property>
@@ -225,7 +215,7 @@
       <widget class="QComboBox" name="cmbCellIndex1">
        <property name="geometry">
         <rect>
-         <x>303</x>
+         <x>327</x>
          <y>76</y>
          <width>51</width>
          <height>20</height>
@@ -247,7 +237,7 @@
         <rect>
          <x>10</x>
          <y>24</y>
-         <width>270</width>
+         <width>300</width>
          <height>18</height>
         </rect>
        </property>
@@ -258,7 +248,7 @@
       <widget class="QComboBox" name="cmbCellNumber1">
        <property name="geometry">
         <rect>
-         <x>303</x>
+         <x>327</x>
          <y>102</y>
          <width>51</width>
          <height>20</height>
@@ -278,7 +268,7 @@
       <widget class="QComboBox" name="cmbGridDownSlope1">
        <property name="geometry">
         <rect>
-         <x>303</x>
+         <x>327</x>
          <y>50</y>
          <width>51</width>
          <height>20</height>
@@ -298,7 +288,7 @@
       <widget class="QComboBox" name="cmbListingDownSlope1">
        <property name="geometry">
         <rect>
-         <x>303</x>
+         <x>327</x>
          <y>24</y>
          <width>51</width>
          <height>20</height>
@@ -320,7 +310,7 @@
         <rect>
          <x>10</x>
          <y>129</y>
-         <width>270</width>
+         <width>300</width>
          <height>18</height>
         </rect>
        </property>
@@ -358,8 +348,8 @@
      <widget class="QPushButton" name="pbCreateTopoindexIni1">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>435</y>
+        <x>50</x>
+        <y>500</y>
         <width>300</width>
         <height>30</height>
        </rect>
@@ -416,7 +406,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>202</y>
+        <y>199</y>
         <width>120</width>
         <height>22</height>
        </rect>
@@ -429,7 +419,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>171</y>
+        <y>168</y>
         <width>120</width>
         <height>22</height>
        </rect>
@@ -441,8 +431,8 @@
      <widget class="QPushButton" name="pbCalculateTopoindex1">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>470</y>
+        <x>50</x>
+        <y>535</y>
         <width>300</width>
         <height>30</height>
        </rect>
@@ -451,22 +441,12 @@
        <string>Calculate TopoIndex.exe</string>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mlcDEM1">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>171</y>
-        <width>181</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="leProjectName1">
       <property name="geometry">
        <rect>
         <x>150</x>
         <y>8</y>
-        <width>181</width>
+        <width>251</width>
         <height>20</height>
        </rect>
       </property>
@@ -516,6 +496,78 @@
         <width>71</width>
         <height>20</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwDEM1">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>167</y>
+        <width>251</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwFlowDirection1">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>197</y>
+        <width>251</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwOutput1">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>430</y>
+        <width>241</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="options">
+       <set>QFileDialog::ShowDirsOnly</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_48">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>458</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TopoIndex.exe</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_69">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>430</y>
+        <width>250</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Result location folder</string>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwExeFile1">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>458</y>
+        <width>241</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="options">
+       <set>QFileDialog::ShowDirsOnly</set>
       </property>
      </widget>
     </widget>
@@ -1271,7 +1323,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>395</y>
+        <y>377</y>
         <width>701</width>
         <height>21</height>
        </rect>
@@ -1284,7 +1336,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>415</y>
+        <y>397</y>
         <width>69</width>
         <height>22</height>
        </rect>
@@ -1329,16 +1381,6 @@
       </property>
       <property name="text">
        <string>Create TRIGRS.exe</string>
-      </property>
-     </widget>
-     <widget class="QgsMapLayerComboBox" name="mlcSlofil2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>201</width>
-        <height>27</height>
-       </rect>
       </property>
      </widget>
      <widget class="QgsMapLayerComboBox" name="mlcCfil2">
@@ -1512,6 +1554,42 @@
         <width>231</width>
         <height>27</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwSlofil2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>241</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_94">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>423</y>
+        <width>701</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Result TRIGRS location folder</string>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwOutput2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>420</y>
+        <width>241</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="options">
+       <set>QFileDialog::ShowDirsOnly</set>
       </property>
      </widget>
     </widget>
