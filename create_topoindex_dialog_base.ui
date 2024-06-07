@@ -17,7 +17,7 @@
    <iconset>
     <normaloff>../../../../../../../../../Documents/QGISPlugins/create_topoindex v1/icon.png</normaloff>../../../../../../../../../Documents/QGISPlugins/create_topoindex v1/icon.png</iconset>
   </property>
-  <widget class="QTabWidget" name="tabWidget">
+  <widget class="QTabWidget" name="leIdCode2">
    <property name="geometry">
     <rect>
      <x>1</x>
@@ -524,7 +524,7 @@
     <attribute name="title">
      <string>TRIGRS</string>
     </attribute>
-    <widget class="QLineEdit" name="lineEdit_7">
+    <widget class="QLineEdit" name="leColumn2">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -595,7 +595,7 @@
       <string>Project Name</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
+    <widget class="QLineEdit" name="leImax2">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -658,7 +658,7 @@
      <property name="title">
       <string>GroupBox</string>
      </property>
-     <widget class="QSpinBox" name="spinBox_7">
+     <widget class="QSpinBox" name="spbNzs2">
       <property name="geometry">
        <rect>
         <x>38</x>
@@ -700,7 +700,7 @@
        <string>MMAX</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox_8">
+     <widget class="QSpinBox" name="spbNmax2">
       <property name="geometry">
        <rect>
         <x>148</x>
@@ -729,7 +729,7 @@
        <string>NPER</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox_9">
+     <widget class="QSpinBox" name="spbNper2">
       <property name="geometry">
        <rect>
         <x>264</x>
@@ -758,7 +758,7 @@
        <string>ZMIN</string>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_9">
+     <widget class="QDoubleSpinBox" name="spbZmin2">
       <property name="geometry">
        <rect>
         <x>375</x>
@@ -774,7 +774,7 @@
        <double>0.001000000000000</double>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_10">
+     <widget class="QDoubleSpinBox" name="spbUww2">
       <property name="geometry">
        <rect>
         <x>492</x>
@@ -819,7 +819,7 @@
        <string>T</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_9">
+     <widget class="QLineEdit" name="leT2">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -830,6 +830,9 @@
         <width>70</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="text">
+       <string>86400</string>
       </property>
      </widget>
     </widget>
@@ -952,7 +955,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>List of defining runoff computation order (ndxfil)</string>
+       <string>Txt file TIcelindxList (ndxfil)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_80">
@@ -965,7 +968,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Grid of D8 runoff receptor cell numbers (nxtfil)</string>
+       <string>asci file TIdscelGrid (nxtfil)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_78">
@@ -991,7 +994,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>List of all runoff receptor cells  (dscfil)</string>
+       <string>Txt file TIdscelList  (dscfil)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_81">
@@ -1004,7 +1007,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>List of runoff weighting factors  (wffil)</string>
+       <string>Txt file TIwfactorList (wffil)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_77">
@@ -1124,7 +1127,7 @@
        <string>Save grid files of runoff? Enter T (.true.) or F (.false.)</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="cmbRunoff2">
       <property name="geometry">
        <rect>
         <x>560</x>
@@ -1135,16 +1138,16 @@
       </property>
       <item>
        <property name="text">
-        <string>True</string>
+        <string>T</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>False</string>
+        <string>F</string>
        </property>
       </item>
      </widget>
-     <widget class="QComboBox" name="comboBox_2">
+     <widget class="QComboBox" name="cmbSafetyMax2">
       <property name="geometry">
        <rect>
         <x>560</x>
@@ -1155,16 +1158,16 @@
       </property>
       <item>
        <property name="text">
-        <string>True</string>
+        <string>T</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>False</string>
+        <string>F</string>
        </property>
       </item>
      </widget>
-     <widget class="QComboBox" name="comboBox_3">
+     <widget class="QComboBox" name="cmbPressureMax2">
       <property name="geometry">
        <rect>
         <x>560</x>
@@ -1175,16 +1178,16 @@
       </property>
       <item>
        <property name="text">
-        <string>True</string>
+        <string>T</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>False</string>
+        <string>F</string>
        </property>
       </item>
      </widget>
-     <widget class="QComboBox" name="comboBox_4">
+     <widget class="QComboBox" name="cmbSafetyMin2">
       <property name="geometry">
        <rect>
         <x>560</x>
@@ -1195,16 +1198,16 @@
       </property>
       <item>
        <property name="text">
-        <string>True</string>
+        <string>T</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>False</string>
+        <string>F</string>
        </property>
       </item>
      </widget>
-     <widget class="QComboBox" name="comboBox_5">
+     <widget class="QComboBox" name="cmbDepthSafety2">
       <property name="geometry">
        <rect>
         <x>560</x>
@@ -1215,16 +1218,16 @@
       </property>
       <item>
        <property name="text">
-        <string>True</string>
+        <string>T</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>False</string>
+        <string>F</string>
        </property>
       </item>
      </widget>
-     <widget class="QComboBox" name="comboBox_6">
+     <widget class="QComboBox" name="cmbPorePressure2">
       <property name="geometry">
        <rect>
         <x>560</x>
@@ -1235,16 +1238,16 @@
       </property>
       <item>
        <property name="text">
-        <string>True</string>
+        <string>T</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>False</string>
+        <string>F</string>
        </property>
       </item>
      </widget>
-     <widget class="QComboBox" name="comboBox_7">
+     <widget class="QComboBox" name="cmbInfiltration2">
       <property name="geometry">
        <rect>
         <x>560</x>
@@ -1255,12 +1258,12 @@
       </property>
       <item>
        <property name="text">
-        <string>True</string>
+        <string>T</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>False</string>
+        <string>F</string>
        </property>
       </item>
      </widget>
@@ -1277,7 +1280,7 @@
        <string>Save listing of pressure head and factor of safety (&quot;flag&quot;)? (Enter -2 detailed, -1 normal, 0 none)</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox_8">
+     <widget class="QComboBox" name="cmbFlag2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1302,7 +1305,7 @@
        </property>
       </item>
      </widget>
-     <widget class="QPushButton" name="pbCreateTRIGRSini">
+     <widget class="QPushButton" name="pbCreateTrigrsIni2">
       <property name="geometry">
        <rect>
         <x>686</x>
@@ -1315,7 +1318,7 @@
        <string>Create TRIGRS.ini</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pbCreateTRIGRSexe">
+     <widget class="QPushButton" name="pbCalculateTrigrs2">
       <property name="geometry">
        <rect>
         <x>686</x>
@@ -1328,7 +1331,7 @@
        <string>Create TRIGRS.exe</string>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox">
+     <widget class="QgsMapLayerComboBox" name="mlcSlofil2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1338,7 +1341,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_2">
+     <widget class="QgsMapLayerComboBox" name="mlcCfil2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1351,7 +1354,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_3">
+     <widget class="QgsMapLayerComboBox" name="mlcPhifil2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1364,7 +1367,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_4">
+     <widget class="QgsMapLayerComboBox" name="mlcZfil2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1377,7 +1380,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_5">
+     <widget class="QgsMapLayerComboBox" name="mlcUwsfil2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1390,7 +1393,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_6">
+     <widget class="QgsMapLayerComboBox" name="mlcDepfil2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1403,7 +1406,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_7">
+     <widget class="QgsMapLayerComboBox" name="mlcDiffil2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1416,20 +1419,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_8">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>240</y>
-        <width>201</width>
-        <height>27</height>
-       </rect>
-      </property>
-      <property name="allowEmptyLayer">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_9">
+     <widget class="QgsMapLayerComboBox" name="mlcKsfil2">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -1442,33 +1432,10 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_10">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>290</y>
-        <width>201</width>
-        <height>27</height>
-       </rect>
+     <widget class="QgsMapLayerComboBox" name="mlcRifil2">
+      <property name="enabled">
+       <bool>false</bool>
       </property>
-      <property name="allowEmptyLayer">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_11">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>190</y>
-        <width>201</width>
-        <height>27</height>
-       </rect>
-      </property>
-      <property name="allowEmptyLayer">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_12">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -1481,7 +1448,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_13">
+     <widget class="QgsMapLayerComboBox" name="mlcNxtfil2">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -1494,7 +1461,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox_14">
+     <widget class="QgsMapLayerComboBox" name="mlcRizerofil2">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -1505,10 +1472,50 @@
       </property>
       <property name="allowEmptyLayer">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leOutputFile2">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>360</y>
+        <width>133</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwNdxfil2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>190</y>
+        <width>231</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwDscfil2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>240</y>
+        <width>231</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwWffil2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>290</y>
+        <width>231</width>
+        <height>27</height>
+       </rect>
       </property>
      </widget>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_6">
+    <widget class="QLineEdit" name="leRow2">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -1521,7 +1528,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_8">
+    <widget class="QLineEdit" name="leNwf2">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -1585,7 +1592,7 @@
        <string>CUws</string>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_12">
+     <widget class="QDoubleSpinBox" name="spbCuws2">
       <property name="geometry">
        <rect>
         <x>375</x>
@@ -1640,7 +1647,7 @@
        <string>CPhi</string>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_14">
+     <widget class="QDoubleSpinBox" name="spbCdep2">
       <property name="geometry">
        <rect>
         <x>600</x>
@@ -1653,7 +1660,7 @@
        <double>5.000000000000000</double>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_11">
+     <widget class="QDoubleSpinBox" name="spbCphi2">
       <property name="geometry">
        <rect>
         <x>148</x>
@@ -1675,7 +1682,7 @@
        <double>24.500000000000000</double>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_15">
+     <widget class="QDoubleSpinBox" name="spbCc2">
       <property name="geometry">
        <rect>
         <x>38</x>
@@ -1697,7 +1704,7 @@
        <double>5100.000000000000000</double>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_16">
+     <widget class="QDoubleSpinBox" name="spbCzmax2">
       <property name="geometry">
        <rect>
         <x>264</x>
@@ -1719,7 +1726,7 @@
        <double>5.000000000000000</double>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="doubleSpinBox_13">
+     <widget class="QDoubleSpinBox" name="spbCrizero2">
       <property name="geometry">
        <rect>
         <x>492</x>
@@ -1735,7 +1742,7 @@
        <double>0.000000000000000</double>
       </property>
      </widget>
-     <widget class="QLabel" name="label_69">
+     <widget class="QLabel" name="lCdif">
       <property name="geometry">
        <rect>
         <x>672</x>
@@ -1761,7 +1768,7 @@
        <string>Cks</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="leCdif2">
       <property name="geometry">
        <rect>
         <x>702</x>
@@ -1774,7 +1781,7 @@
        <string>0.00000082</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="leCks2">
       <property name="geometry">
        <rect>
         <x>800</x>
@@ -1819,10 +1826,7 @@
        <string>IDCode</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_10">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
+     <widget class="QLineEdit" name="leIdCode3">
       <property name="geometry">
        <rect>
         <x>342</x>
@@ -1831,21 +1835,24 @@
         <height>20</height>
        </rect>
       </property>
+      <property name="text">
+       <string>ID</string>
+      </property>
      </widget>
     </widget>
     <zorder>frame_2</zorder>
-    <zorder>lineEdit_7</zorder>
+    <zorder>leColumn2</zorder>
     <zorder>label_53</zorder>
     <zorder>label_54</zorder>
     <zorder>leProjectName2</zorder>
     <zorder>label10_8</zorder>
-    <zorder>lineEdit_5</zorder>
+    <zorder>leImax2</zorder>
     <zorder>label_55</zorder>
     <zorder>label_56</zorder>
     <zorder>groupBox_4</zorder>
     <zorder>groupBox_6</zorder>
-    <zorder>lineEdit_6</zorder>
-    <zorder>lineEdit_8</zorder>
+    <zorder>leRow2</zorder>
+    <zorder>leNwf2</zorder>
     <zorder>groupBox</zorder>
    </widget>
   </widget>
@@ -1871,6 +1878,11 @@
   </widget>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>QgsFileWidget</class>
+   <extends>QWidget</extends>
+   <header>qgsfilewidget.h</header>
+  </customwidget>
   <customwidget>
    <class>QgsMapLayerComboBox</class>
    <extends>QComboBox</extends>

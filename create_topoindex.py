@@ -192,9 +192,23 @@ class CreateTopoindex:
             self.first_start = False
             self.dlg = CreateTopoindexDialog()
             self.dlg.pbCreateTopoindexIni1.clicked.connect(self.create_topoindex_ini)
-            self.dlg.pbCalculateTopoindex1.clicked.connect(self.call_exe_file)
+            self.dlg.pbCalculateTopoindex1.clicked.connect(self.call_topoindex_exe_file)
+            self.dlg.pbCreateTrigrsIni2.clicked.connect(self.create_trigrs_ini)
+            self.dlg.pbCalculateTrigrs2.clicked.connect(self.call_trigrs_exe_file)
             self.dlg.leOutputFile1.hide()
+            self.dlg.leOutputFile2.hide()
             self.dlg.pbCalculateTopoindex1.hide()
+            self.dlg.pbCalculateTrigrs2.hide()
+            self.dlg.mlcSlofil2.setLayer(None)
+            self.dlg.mlcCfil2.setLayer(None)
+            self.dlg.mlcPhifil2.setLayer(None)
+            self.dlg.mlcZfil2.setLayer(None)
+            self.dlg.mlcUwsfil2.setLayer(None)
+            self.dlg.mlcDepfil2.setLayer(None)
+            self.dlg.mlcDiffil2.setLayer(None)
+            self.dlg.mlcKsfil2.setLayer(None)
+            self.dlg.mlcRizerofil2.setLayer(None)
+            self.dlg.mlcRifil2.setLayer(None)
             #
 
         #baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
@@ -204,6 +218,10 @@ class CreateTopoindex:
         # baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
         self.dlg.mlcFlowDirection1.setFilters(QgsMapLayerProxyModel.RasterLayer)
         self.dlg.mlcFlowDirection1.currentTextChanged.connect(self.fill_rows_cols_flow_layer)
+
+        # baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
+        self.dlg.mlcSlofil2.setFilters(QgsMapLayerProxyModel.RasterLayer)
+        self.dlg.mlcSlofil2.currentTextChanged.connect(self.fill_imax_rows_cols_flow_layer)
 
         # show the dialog
         self.dlg.show()
@@ -222,6 +240,7 @@ class CreateTopoindex:
             #subprocess.Popen(['C:/TRIGRS/TopoIndex.exe'], stdout=subprocess.PIPE)
             #subprocess.Popen(['TopoIndex.exe', r"cd C:/TRIGRS"],stdout=subprocess.PIPE, stderr=subprocess.PIPE,encoding = "ISO-8859-1", shell=True, text=True)
 
+    #Fungsi membuat file topoindex.ini
     def create_topoindex_ini(self):
         filename, _filter = QFileDialog.getSaveFileName(self.dlg, "Pilih output file", "", '*.ini')
         self.dlg.leOutputFile1.setText(filename)
@@ -308,7 +327,288 @@ class CreateTopoindex:
 
         self.iface.messageBar().pushMessage("Berhasil", "Output file ditulis sebagai" + filename, level=Qgis.Success, duration=3)
         QMessageBox.information(self.dlg, "Informasi", "File Topoindex.ini berhasil dibuat")
-        
+
+    # Fungsi membuat file trigrs.ini
+    def create_trigrs_ini(self):
+        filename, _filter = QFileDialog.getSaveFileName(self.dlg, "Pilih output file", "", '*.ini')
+        self.dlg.leOutputFile2.setText(filename)
+
+        filename = self.dlg.leOutputFile2.text()
+        with open(filename, 'w') as output_file:
+            line = "Name of project (up to 255 characters)" + '\n'
+            output_file.write(line)
+
+            project_name = self.dlg.leProjectName2.text()
+            line = ''.join(project_name + '\n')
+            output_file.write(line)
+
+            line = "imax, row, col, nwf" + '\n'
+            output_file.write(line)
+
+            imax2 = self.dlg.leImax2.text()
+            row2 = self.dlg.leRow2.text()
+            column2 = self.dlg.leColumn2.text()
+            nwf2 = self.dlg.leNwf2.text()
+            line = ''.join(imax2 + ', ' + row2 + ', ' + column2 + ', ' + nwf2 +  '\n')
+            output_file.write(line)
+
+            line = "nzs, nmax, nper, zmin, uww, t" + '\n'
+            output_file.write(line)
+
+            nzs2 = self.dlg.spbNzs2.text()
+            nmax2 = self.dlg.spbNmax2.text()
+            nper2 = self.dlg.spbNper2.text()
+            zmin2 = self.dlg.spbZmin2.text()
+            uww2 = self.dlg.spbUww2.text()
+
+            #Set T
+            t2 = self.dlg.leT2.text()
+            line = ''.join(nzs2 + ', ' + nmax2 + ', ' + nper2 + ', ' + zmin2 + ', ' + uww2 + ', ' + t2 + '\n')
+            output_file.write(line)
+
+            line = "cc, cphi, czmax, cuws, crizero, cdep, cdif, cks" + '\n'
+            output_file.write(line)
+
+            cc2 = self.dlg.spbCc2.text()
+            cphi2 = self.dlg.spbCphi2.text()
+            czmax2 = self.dlg.spbCzmax2.text()
+            cuws2 = self.dlg.spbCuws2.text()
+            crizero2 = self.dlg.spbCrizero2.text()
+            cdep2 = self.dlg.spbCdep2.text()
+            cdif2 = self.dlg.leCdif2.text()
+            cks2 = self.dlg.leCks2.text()
+            line = ''.join(cc2 + ', ' + cphi2 + ', ' + czmax2 + ', ' + cuws2 + ', ' + crizero2 + ', ' + cdep2 + ', ' + cdif2 + ', ' + cks2 + '\n')
+            output_file.write(line)
+
+            line = "cri(1), cri(2), ... cri(nper)" + '\n'
+            output_file.write(line)
+
+            #tampilkan kriteria
+            i = 0
+            n = int(nper2)
+            while (i < n):
+                line = ''.join('1.2e-08' + ', ')
+                output_file.write(line)
+                i = i + 1
+            line = ''.join('\n')
+            output_file.write(line)
+
+            line = "capt(1), capt(2), ... capt(n+1)" + '\n'
+            output_file.write(line)
+
+            # tampilkan capt
+            i = 0
+            capt2 = 0
+            capt1 = 86400
+            n = int(nper2)
+            while (i <= n):
+                if (i < n):
+                    line = ''.join(str(capt2) + ', ')
+                    output_file.write(line)
+                elif (i == n):
+                    line = ''.join(str(capt2))
+                    output_file.write(line)
+                capt2 = capt2 + capt1
+                i = i + 1
+            line = ''.join('\n')
+            output_file.write(line)
+
+            #Slofil
+            line = "File name of slope angle grid (slofil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcSlofil2.currentText()
+            output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Cfil
+            line = "File name of cohesion grid (cfil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcCfil2.currentText()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Phifil
+            line = "File name of Phi-angle grid (phifil) " + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcPhifil2.currentText()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Zfil
+            line = "File name of depth grid (zfil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcZfil2.currentText()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Uwsfil
+            line = "File name of total unit weight of soil grid (uwsfil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcUwsfil2.currentText()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Depfil
+            line = "File name of initial depth of water table grid   (depfil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcDepfil2.currentText()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Diffil
+            line = "File name of diffusivity grid  (diffil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcDiffil2.currentText()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Ksfil
+            line = "File name of saturated hydraulic conductivity grid   (ksfil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcKsfil2.currentText()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Rizerofil
+            line = "File name of initial infiltration rate grid   (rizerofil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcRizerofil2.currentText()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Nxtfil
+            line = "File name of grid of D8 runoff receptor cell numbers (nxtfil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.mlcNxtfil2.currentText()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
+            #Ndxfil
+            line = "File name of list of defining runoff computation order (ndxfil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.fwNdxfil2.filePath()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write(line + '\n')
+
+            #Dscfil
+            line = "File name of list of all runoff receptor cells  (dscfil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.fwDscfil2.filePath()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write(line + '\n')
+
+            #Wiffil
+            line = "File name of list of runoff weighting factors  (wffil)" + '\n'
+            output_file.write(line)
+            line = self.dlg.fwWffil2.filePath()
+            if line == '':
+                output_file.write("none" + "\n")
+            else:
+                output_file.write(line + '\n')
+
+            #Rifil
+            line = "List of file name(s) of rainfall intensity for each period, (rifil())" + '\n'
+            output_file.write(line)
+            #line = self.dlg.mlcRifil2.currentText()
+            #output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            i = 0
+            n = int(nper2)
+            while (i < n):
+                line = ''.join('none' + '\n')
+                output_file.write(line)
+                i = i + 1
+            #line = ''.join('\n')
+            #output_file.write(line)
+
+            #Folder result
+            line = "Folder where output grid files will be stored  (folder)" + '\n'
+            output_file.write(line)
+            output_file.write("c:\\TRIGRS\\result\\" + '\n')
+
+            # ID Suffix
+            line = "Identification code to be added to names of output files (suffix)" + '\n'
+            output_file.write(line)
+            idCode2 = self.dlg.leIdCode3.text()
+            output_file.write(idCode2+ '\n')
+
+            #Save Runoff
+            line = "Save grid files of runoff? Enter T (.true.) or F (.false.)" + '\n'
+            output_file.write(line)
+            runoff2 = self.dlg.cmbRunoff2.currentText()
+            output_file.write(runoff2 + '\n')
+
+            #Save grid Safety Max
+            line = "Save grid of factor of safety at maximum depth, zmax? Enter T (.true.) or F (.false.)" + '\n'
+            output_file.write(line)
+            safetyMax2 = self.dlg.cmbSafetyMax2.currentText()
+            output_file.write(safetyMax2 + '\n')
+
+            #Pore pressure
+            line = "Save grid of pore pressure at maximum depth, zmax? Enter T (.true.) or F (.false.)" + '\n'
+            output_file.write(line)
+            safetyMax2 = self.dlg.cmbPressureMax2.currentText()
+            output_file.write(safetyMax2 + '\n')
+
+            #minimum factor of safety
+            line = "Save grid of minimum factor of safety? Enter Enter T (.true.) or F (.false.)" + '\n'
+            output_file.write(line)
+            safetyMin2 = self.dlg.cmbSafetyMin2.currentText()
+            output_file.write(safetyMin2 + '\n')
+
+            #Depth of minimum factor
+            line = "Save grid of depth of minimum factor of safety? Enter Enter T (.true.) or F (.false.)" + '\n'
+            output_file.write(line)
+            depthSafety2 = self.dlg.cmbDepthSafety2.currentText()
+            output_file.write(depthSafety2 + '\n')
+
+            #pore pressure at depth of minimum factor of safety
+            line = "Save grid of pore pressure at depth of minimum factor of safety? Enter Enter T (.true.) or F (.false.)" + '\n'
+            output_file.write(line)
+            porePressure2 = self.dlg.cmbPorePressure2.currentText()
+            output_file.write(porePressure2 + '\n')
+
+            #actual infiltration rate
+            line = "Save grid files of actual infiltration rate? Enter T (.true.) or F (.false.)" + '\n'
+            output_file.write(line)
+            infiltration2 = self.dlg.cmbInfiltration2.currentText()
+            output_file.write(infiltration2 + '\n')
+
+            #Flag
+            line = "Save listing of pressure head and factor of safety (\"flag\")? (Enter -2 detailed, -1 normal, 0 none)" + '\n'
+            output_file.write(line)
+            flag2 = self.dlg.cmbFlag2.currentText()
+            output_file.write(flag2 + '\n')
+
+
+
+
+
+
+        self.dlg.pbCalculateTrigrs2.show()
+        self.iface.messageBar().pushMessage("Berhasil", "Output file ditulis sebagai" + filename, level=Qgis.Success, duration=3)
+        QMessageBox.information(self.dlg, "Informasi", "File Trigrs.ini berhasil dibuat")
+
     def fill_rows_cols_dem_layer(self):
         # read layer
         layer = self.dlg.mlcDEM1.currentText()
@@ -329,11 +629,33 @@ class CreateTopoindex:
         self.dlg.leRows1.setText(str(rows))
         self.dlg.leColumns1.setText(str(cols))
 
+    def fill_imax_rows_cols_flow_layer(self):
+        #read layer
+        layer = self.dlg.mlcSlofil2.currentText()
+        rlayer = QgsProject.instance().mapLayersByName(layer)[0]
 
-    def call_exe_file(self):
+        column2 = rlayer.width()
+        row2 = rlayer.height()
+        imax2 = 844278
+        nwf2 = 844278
+        self.dlg.leImax2.setText(str(imax2))
+        self.dlg.leRow2.setText(str(row2))
+        self.dlg.leColumn2.setText(str(column2))
+        self.dlg.leNwf2.setText(str(nwf2))
+
+
+    def call_topoindex_exe_file(self):
         try:
             # Replace with the actual path to your external program
             external_program_path = "C:/TRIGRS/TopoIndex.exe"
+            subprocess.call([external_program_path, "arg1", "arg2"])
+        except Exception as e:
+            print(f"Error running external program: {e}")
+
+    def call_trigrs_exe_file(self):
+        try:
+            # Replace with the actual path to your external program
+            external_program_path = "C:/TRIGRS/TRIGRS.exe"
             subprocess.call([external_program_path, "arg1", "arg2"])
         except Exception as e:
             print(f"Error running external program: {e}")
