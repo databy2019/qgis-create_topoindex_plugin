@@ -27,7 +27,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -52,7 +52,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>233</y>
+        <y>194</y>
         <width>120</width>
         <height>20</height>
        </rect>
@@ -81,7 +81,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>104</y>
+        <y>65</y>
         <width>120</width>
         <height>20</height>
        </rect>
@@ -96,8 +96,8 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>72</y>
+        <x>188</x>
+        <y>38</y>
         <width>120</width>
         <height>20</height>
        </rect>
@@ -110,7 +110,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>136</y>
+        <y>97</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -126,7 +126,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>233</y>
+        <y>194</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -139,7 +139,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>265</y>
+        <y>226</y>
         <width>391</width>
         <height>160</height>
        </rect>
@@ -326,7 +326,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>40</y>
+        <y>38</y>
         <width>120</width>
         <height>20</height>
        </rect>
@@ -362,7 +362,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>136</y>
+        <y>97</y>
         <width>120</width>
         <height>20</height>
        </rect>
@@ -381,7 +381,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>104</y>
+        <y>65</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -406,7 +406,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>199</y>
+        <y>160</y>
         <width>120</width>
         <height>22</height>
        </rect>
@@ -419,7 +419,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>168</y>
+        <y>129</y>
         <width>120</width>
         <height>22</height>
        </rect>
@@ -475,8 +475,8 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>40</y>
+        <x>82</x>
+        <y>38</y>
         <width>71</width>
         <height>20</height>
        </rect>
@@ -491,8 +491,8 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>72</y>
+        <x>327</x>
+        <y>38</y>
         <width>71</width>
         <height>20</height>
        </rect>
@@ -502,7 +502,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>167</y>
+        <y>128</y>
         <width>251</width>
         <height>27</height>
        </rect>
@@ -512,7 +512,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>197</y>
+        <y>158</y>
         <width>251</width>
         <height>27</height>
        </rect>
@@ -521,9 +521,9 @@
      <widget class="QgsFileWidget" name="fwOutput1">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>430</y>
-        <width>241</width>
+        <x>180</x>
+        <y>425</y>
+        <width>221</width>
         <height>27</height>
        </rect>
       </property>
@@ -535,7 +535,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>458</y>
+        <y>453</y>
         <width>120</width>
         <height>20</height>
        </rect>
@@ -548,7 +548,7 @@
       <property name="geometry">
        <rect>
         <x>11</x>
-        <y>430</y>
+        <y>425</y>
         <width>250</width>
         <height>20</height>
        </rect>
@@ -560,9 +560,35 @@
      <widget class="QgsFileWidget" name="fwExeFile1">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>458</y>
-        <width>241</width>
+        <x>180</x>
+        <y>453</y>
+        <width>221</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="options">
+       <set>QFileDialog::ShowDirsOnly</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_95">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>397</y>
+        <width>250</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TopoIndex.ini location folder</string>
+      </property>
+     </widget>
+     <widget class="QgsFileWidget" name="fwTopoindexFolder1">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>397</y>
+        <width>221</width>
         <height>27</height>
        </rect>
       </property>

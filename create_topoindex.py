@@ -204,6 +204,7 @@ class CreateTopoindex:
             self.dlg.pbCalculateTrigrs2.hide()
             # Mengatur tipe penyimpanan file ke direktori
             self.dlg.fwOutput1.setStorageMode(self.dlg.fwOutput1.StorageMode.GetDirectory)
+            self.dlg.fwTopoindexFolder1.setStorageMode(self.dlg.fwTopoindexFolder1.StorageMode.GetDirectory)
             self.dlg.fwOutput2.setStorageMode(self.dlg.fwOutput2.StorageMode.GetDirectory)
 
             #self.dlg.mlcSlofil2.setLayer(None)
@@ -715,10 +716,14 @@ class CreateTopoindex:
 
     def call_topoindex_exe_file(self):
         try:
+            new_working_directory = self.dlg.fwTopoindexFolder1.filePath()
+            os.chdir(new_working_directory)
+            #print(f"Current working directory: {os.getcwd()}")
+            #QMessageBox.information(self.dlg, f"Informasi", "File Trigrs.ini berhasil dibuat {os.getcwd()}" , os.getcwd())
             # Replace with the actual path to your external program
             external_program_path = self.dlg.fwExeFile1.filePath()
             subprocess.call([external_program_path, "arg1", "arg2"])
-            self.dlg.pbCalculateTopoindex1.hide()
+            #self.dlg.pbCalculateTopoindex1.hide()
         except Exception as e:
             print(f"Error running external program: {e}")
 
