@@ -27,7 +27,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -348,7 +348,7 @@
      <widget class="QPushButton" name="pbCreateTopoindexIni1">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>132</x>
         <y>500</y>
         <width>300</width>
         <height>30</height>
@@ -431,7 +431,7 @@
      <widget class="QPushButton" name="pbCalculateTopoindex1">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>132</x>
         <y>535</y>
         <width>300</width>
         <height>30</height>
@@ -503,7 +503,7 @@
        <rect>
         <x>150</x>
         <y>128</y>
-        <width>251</width>
+        <width>401</width>
         <height>27</height>
        </rect>
       </property>
@@ -513,7 +513,7 @@
        <rect>
         <x>150</x>
         <y>158</y>
-        <width>251</width>
+        <width>401</width>
         <height>27</height>
        </rect>
       </property>
@@ -523,7 +523,7 @@
        <rect>
         <x>180</x>
         <y>425</y>
-        <width>221</width>
+        <width>371</width>
         <height>27</height>
        </rect>
       </property>
@@ -562,7 +562,7 @@
        <rect>
         <x>180</x>
         <y>453</y>
-        <width>221</width>
+        <width>371</width>
         <height>27</height>
        </rect>
       </property>
@@ -588,7 +588,7 @@
        <rect>
         <x>180</x>
         <y>397</y>
-        <width>221</width>
+        <width>371</width>
         <height>27</height>
        </rect>
       </property>
@@ -857,18 +857,18 @@
        <rect>
         <x>492</x>
         <y>21</y>
-        <width>56</width>
+        <width>67</width>
         <height>22</height>
        </rect>
       </property>
       <property name="decimals">
-       <number>0</number>
+       <number>6</number>
       </property>
       <property name="maximum">
-       <double>100000.000000000000000</double>
+       <double>1.000000000000000</double>
       </property>
       <property name="value">
-       <double>98000.000000000000000</double>
+       <double>0.980665000000000</double>
       </property>
      </widget>
      <widget class="QLabel" name="label_61">
@@ -942,7 +942,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Cohesion grid (cfil)</string>
+       <string>Cohesion grid (c)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_72">
@@ -955,7 +955,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Phi-angle grid (phifil)</string>
+       <string>Phi-angle grid (dep)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_73">
@@ -968,7 +968,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Depth grid (zfil)</string>
+       <string>Depth grid (z)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_74">
@@ -981,7 +981,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Total unit weight of soil grid (uwsfil)</string>
+       <string>Total unit weight of soil grid (uws)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_75">
@@ -994,7 +994,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Initial depth of water table grid   (depfil)</string>
+       <string>Initial depth of water table grid (dep)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_76">
@@ -1007,7 +1007,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Diffusivity grid  (diffil)</string>
+       <string>Diffusivity grid  (diff)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_79">
@@ -1020,7 +1020,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Slope angle grid (slofil) </string>
+       <string>Slope angle grid (d) </string>
       </property>
      </widget>
      <widget class="QLabel" name="label_83">
@@ -1033,7 +1033,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Txt file TIcelindxList (ndxfil)</string>
+       <string>Txt file TIcelindxList (ndx)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_80">
@@ -1046,7 +1046,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>asci file TIdscelGrid (nxtfil)</string>
+       <string>asci file TIdscelGrid (nxt)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_78">
@@ -1059,7 +1059,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Initial infiltration rate grid   (rizerofil)</string>
+       <string>Initial infiltration rate grid   (rizero)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_82">
@@ -1072,7 +1072,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Txt file TIdscelList  (dscfil)</string>
+       <string>Txt file TIdscelList  (dsc)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_81">
@@ -1085,7 +1085,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Txt file TIwfactorList (wffil)</string>
+       <string>Txt file TIwfactorList (wf)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_77">
@@ -1098,7 +1098,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Saturated hydraulic conductivity grid   (ksfil)</string>
+       <string>Saturated hydraulic conductivity grid   (Ks)</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_84">
@@ -1111,7 +1111,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Rainfall intensity for each period, (rifil()) </string>
+       <string>Rainfall intensity for each period, (ri()) </string>
       </property>
      </widget>
      <widget class="QLabel" name="label_85">

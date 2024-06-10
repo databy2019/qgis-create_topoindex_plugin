@@ -219,7 +219,13 @@ class CreateTopoindex:
             self.dlg.mlcRifil2.setLayer(None)
 
             #set tool tip
-            self.dlg.leProjectName1.setToolTip("Enter the project name")
+            self.dlg.leProjectName1.setToolTip("Enter the project name.")
+            self.dlg.fwDEM1.setToolTip("Select the DEM file to be used.")
+            self.dlg.fwFlowDirection1.setToolTip("Select the Flow direction file to be used.")
+            self.dlg.fwTopoindexFolder1.setToolTip("Specify a folder where the TopoIndex.ini file will be stored.")
+            self.dlg.fwOutput1.setToolTip("Specify a folder where the files will be stored.")
+            self.dlg.fwExeFile1.setToolTip("Select the TopoIndex.exe file.")
+
 
         #baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
         #self.dlg.mlcDEM1.setFilters(QgsMapLayerProxyModel.RasterLayer)
@@ -261,10 +267,10 @@ class CreateTopoindex:
 
     #Fungsi membuat file topoindex.ini
     def create_topoindex_ini(self):
-        filename, _filter = QFileDialog.getSaveFileName(self.dlg, "Pilih output file", "", '*.ini')
-        self.dlg.leOutputFile1.setText(filename)
+        #filename, _filter = QFileDialog.getSaveFileName(self.dlg, "Pilih output file", "", '*.ini')
+        #self.dlg.leOutputFile1.setText(self.dlg.fwTopoindexFolder1 + '\\TopoIndex.ini')
 
-        filename = self.dlg.leOutputFile1.text()
+        filename = self.dlg.fwTopoindexFolder1.filePath() + '\\TopoIndex.ini'
         with open(filename, 'w') as output_file:
             line = "Name of project (up to 255 characters)" + '\n'
             output_file.write(line)
@@ -354,6 +360,7 @@ class CreateTopoindex:
         self.dlg.leOutputFile2.setText(filename)
 
         filename = self.dlg.leOutputFile2.text()
+
         with open(filename, 'w') as output_file:
             line = "Name of project (up to 255 characters)" + '\n'
             output_file.write(line)
