@@ -521,9 +521,9 @@
      <widget class="QgsFileWidget" name="fwOutput1">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>200</x>
         <y>425</y>
-        <width>371</width>
+        <width>351</width>
         <height>27</height>
        </rect>
       </property>
@@ -536,12 +536,12 @@
        <rect>
         <x>11</x>
         <y>453</y>
-        <width>120</width>
+        <width>191</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>TopoIndex.exe</string>
+       <string>Select the TopoIndex.exe file</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_69">
@@ -560,9 +560,9 @@
      <widget class="QgsFileWidget" name="fwExeFile1">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>200</x>
         <y>453</y>
-        <width>371</width>
+        <width>351</width>
         <height>27</height>
        </rect>
       </property>
@@ -586,9 +586,9 @@
      <widget class="QgsFileWidget" name="fwTopoindexFolder1">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>200</x>
         <y>397</y>
-        <width>371</width>
+        <width>351</width>
         <height>27</height>
        </rect>
       </property>
