@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>919</width>
-    <height>625</height>
+    <height>626</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -1993,6 +1993,65 @@
    <header>qgsmaplayercombobox.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>leProjectName1</tabstop>
+  <tabstop>spbExponent1</tabstop>
+  <tabstop>spbIteration1</tabstop>
+  <tabstop>leIdCode1</tabstop>
+  <tabstop>cmbListingDownSlope1</tabstop>
+  <tabstop>cmbGridDownSlope1</tabstop>
+  <tabstop>cmbCellIndex1</tabstop>
+  <tabstop>cmbCellNumber1</tabstop>
+  <tabstop>cmbFlowDirectionRemap1</tabstop>
+  <tabstop>pbCreateTopoindexIni1</tabstop>
+  <tabstop>pbCalculateTopoindex1</tabstop>
+  <tabstop>leProjectName2</tabstop>
+  <tabstop>leIdCode3</tabstop>
+  <tabstop>spbNzs2</tabstop>
+  <tabstop>spbNmax2</tabstop>
+  <tabstop>spbNper2</tabstop>
+  <tabstop>spbZmin2</tabstop>
+  <tabstop>spbUww2</tabstop>
+  <tabstop>spbCc2</tabstop>
+  <tabstop>spbCphi2</tabstop>
+  <tabstop>spbCzmax2</tabstop>
+  <tabstop>spbCuws2</tabstop>
+  <tabstop>spbCrizero2</tabstop>
+  <tabstop>spbCdep2</tabstop>
+  <tabstop>leCdif2</tabstop>
+  <tabstop>leCks2</tabstop>
+  <tabstop>mlcCfil2</tabstop>
+  <tabstop>mlcPhifil2</tabstop>
+  <tabstop>mlcZfil2</tabstop>
+  <tabstop>mlcUwsfil2</tabstop>
+  <tabstop>mlcDepfil2</tabstop>
+  <tabstop>mlcDiffil2</tabstop>
+  <tabstop>mlcKsfil2</tabstop>
+  <tabstop>mlcRizerofil2</tabstop>
+  <tabstop>mlcNxtfil2</tabstop>
+  <tabstop>mlcRifil2</tabstop>
+  <tabstop>cmbRunoff2</tabstop>
+  <tabstop>cmbSafetyMax2</tabstop>
+  <tabstop>cmbPressureMax2</tabstop>
+  <tabstop>cmbSafetyMin2</tabstop>
+  <tabstop>cmbDepthSafety2</tabstop>
+  <tabstop>cmbPorePressure2</tabstop>
+  <tabstop>cmbInfiltration2</tabstop>
+  <tabstop>cmbFlag2</tabstop>
+  <tabstop>pbCreateTrigrsIni2</tabstop>
+  <tabstop>pbCalculateTrigrs2</tabstop>
+  <tabstop>leRows1</tabstop>
+  <tabstop>leColumns1</tabstop>
+  <tabstop>leOutputFile1</tabstop>
+  <tabstop>leImax2</tabstop>
+  <tabstop>leRow2</tabstop>
+  <tabstop>leColumn2</tabstop>
+  <tabstop>leNwf2</tabstop>
+  <tabstop>leT2</tabstop>
+  <tabstop>leOutputFile2</tabstop>
+  <tabstop>pbClose</tabstop>
+  <tabstop>leIdCode2</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

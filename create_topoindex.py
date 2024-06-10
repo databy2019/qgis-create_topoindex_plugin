@@ -23,7 +23,7 @@
 """
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
 from qgis.PyQt.QtGui import QIcon
-from qgis.PyQt.QtWidgets import QAction, QFileDialog, QMessageBox
+from qgis.PyQt.QtWidgets import QAction, QFileDialog, QMessageBox, QToolTip
 #Add QgsProject
 from qgis.core import QgsProject, Qgis, QgsMapLayer, QgsMapLayerProxyModel
 #Tambahan processing
@@ -217,6 +217,9 @@ class CreateTopoindex:
             self.dlg.mlcKsfil2.setLayer(None)
             self.dlg.mlcRizerofil2.setLayer(None)
             self.dlg.mlcRifil2.setLayer(None)
+
+            #set tool tip
+            self.dlg.leProjectName1.setToolTip("Enter the project name")
 
         #baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
         #self.dlg.mlcDEM1.setFilters(QgsMapLayerProxyModel.RasterLayer)
