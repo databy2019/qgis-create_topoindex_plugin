@@ -205,6 +205,7 @@ class CreateTopoindex:
             # Mengatur tipe penyimpanan file ke direktori
             self.dlg.fwOutput1.setStorageMode(self.dlg.fwOutput1.StorageMode.GetDirectory)
             self.dlg.fwTopoindexFolder1.setStorageMode(self.dlg.fwTopoindexFolder1.StorageMode.GetDirectory)
+            self.dlg.fwTRIGRSFolder2.setStorageMode(self.dlg.fwTRIGRSFolder2.StorageMode.GetDirectory)
             self.dlg.fwOutput2.setStorageMode(self.dlg.fwOutput2.StorageMode.GetDirectory)
 
             #self.dlg.mlcSlofil2.setLayer(None)
@@ -242,6 +243,7 @@ class CreateTopoindex:
         self.dlg.fwFlowDirection1.setFilter("ASCI (*.asc)")
 
         #
+        self.dlg.fwSlofil2.setFilter("ASCI (*.asc)")
         self.dlg.fwSlofil2.fileChanged.connect(self.fill_imax_rows_cols_flow_layer)
 
         # baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
@@ -356,11 +358,12 @@ class CreateTopoindex:
 
     # Fungsi membuat file trigrs.ini
     def create_trigrs_ini(self):
-        filename, _filter = QFileDialog.getSaveFileName(self.dlg, "Pilih output file", "", '*.ini')
-        self.dlg.leOutputFile2.setText(filename)
+        #filename, _filter = QFileDialog.getSaveFileName(self.dlg, "Pilih output file", "", '*.ini')
+        #self.dlg.leOutputFile2.setText(filename)
 
-        filename = self.dlg.leOutputFile2.text()
+        #filename = self.dlg.leOutputFile2.text()
 
+        filename = self.dlg.fwTRIGRSFolder2.filePath() + '\\TRIGRS.ini'
         with open(filename, 'w') as output_file:
             line = "Name of project (up to 255 characters)" + '\n'
             output_file.write(line)
@@ -739,9 +742,14 @@ class CreateTopoindex:
 
     def call_trigrs_exe_file(self):
         try:
+            new_working_directory = self.dlg.fwTRIGRSFolder2.filePath()
+            os.chdir(new_working_directory)
+            # print(f"Current working directory: {os.getcwd()}")
+            # QMessageBox.information(self.dlg, f"Informasi", "File Trigrs.ini berhasil dibuat {os.getcwd()}" , os.getcwd())
             # Replace with the actual path to your external program
-            external_program_path = "C:/TRIGRS/TRIGRS.exe"
+            external_program_path = self.dlg.fwExeFile2.filePath()
             subprocess.call([external_program_path, "arg1", "arg2"])
+            # self.dlg.pbCalculateTopoindex1.hide()
         except Exception as e:
             print(f"Error running external program: {e}")
 
