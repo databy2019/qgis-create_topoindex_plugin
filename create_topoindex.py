@@ -26,6 +26,10 @@ from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QFileDialog, QMessageBox, QToolTip
 #Add QgsProject
 from qgis.core import QgsProject, Qgis, QgsMapLayer, QgsMapLayerProxyModel
+from qgis.core import (
+    QgsVectorLayer, QgsRasterLayer, QgsCoordinateReferenceSystem
+
+)
 #Tambahan processing
 from qgis import processing
 from qgis.core import QgsCoordinateReferenceSystem
@@ -198,6 +202,7 @@ class CreateTopoindex:
             self.dlg.pbCalculateTopoindex1.clicked.connect(self.call_topoindex_exe_file)
             self.dlg.pbCreateTrigrsIni2.clicked.connect(self.create_trigrs_ini)
             self.dlg.pbCalculateTrigrs2.clicked.connect(self.call_trigrs_exe_file)
+
             self.dlg.leOutputFile1.hide()
             self.dlg.leOutputFile2.hide()
             self.dlg.pbCalculateTopoindex1.hide()
@@ -209,15 +214,14 @@ class CreateTopoindex:
             self.dlg.fwOutput2.setStorageMode(self.dlg.fwOutput2.StorageMode.GetDirectory)
 
             #self.dlg.mlcSlofil2.setLayer(None)
-            self.dlg.mlcCfil2.setLayer(None)
-            self.dlg.mlcPhifil2.setLayer(None)
-            self.dlg.mlcZfil2.setLayer(None)
-            self.dlg.mlcUwsfil2.setLayer(None)
-            self.dlg.mlcDepfil2.setLayer(None)
-            self.dlg.mlcDiffil2.setLayer(None)
-            self.dlg.mlcKsfil2.setLayer(None)
-            self.dlg.mlcRizerofil2.setLayer(None)
-            self.dlg.mlcRifil2.setLayer(None)
+            #self.dlg.mlcCfil2.setLayer(None)
+            #self.dlg.mlcZfil2.setLayer(None)
+            #self.dlg.mlcUwsfil2.setLayer(None)
+            #self.dlg.mlcDepfil2.setLayer(None)
+            #self.dlg.mlcDiffil2.setLayer(None)
+            #self.dlg.mlcKsfil2.setLayer(None)
+            #self.dlg.mlcRizerofil2.setLayer(None)
+            #self.dlg.mlcRifil2.setLayer(None)
 
             #set tool tip
             self.dlg.leProjectName1.setToolTip("Enter the project name.")
@@ -245,6 +249,20 @@ class CreateTopoindex:
         #
         self.dlg.fwSlofil2.setFilter("ASCI (*.asc)")
         self.dlg.fwSlofil2.fileChanged.connect(self.fill_imax_rows_cols_flow_layer)
+
+        self.dlg.fwNxtfil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwCfil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwPhifil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwZfil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwUwsfil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwDepfil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwDiffil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwKsfil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwRizerofil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwNxtfil2.setFilter("ASCI (*.asc)")
+        self.dlg.fwNdxfil2.setFilter("Text File (*.txt)")
+        self.dlg.fwDscfil2.setFilter("Text File (*.txt)")
+        self.dlg.fwWffil2.setFilter("Text File (*.txt)")
 
         # baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
         #self.dlg.mlcSlofil2.setFilters(QgsMapLayerProxyModel.RasterLayer)
@@ -399,12 +417,12 @@ class CreateTopoindex:
             line = "cc, cphi, czmax, cuws, crizero, cdep, cdif, cks" + '\n'
             output_file.write(line)
 
-            cc2 = self.dlg.spbCc2.text()
-            cphi2 = self.dlg.spbCphi2.text()
-            czmax2 = self.dlg.spbCzmax2.text()
-            cuws2 = self.dlg.spbCuws2.text()
-            crizero2 = self.dlg.spbCrizero2.text()
-            cdep2 = self.dlg.spbCdep2.text()
+            cc2 = self.dlg.leCc2.text()
+            cphi2 = self.dlg.leCphi2.text()
+            czmax2 = self.dlg.leCzmax2.text()
+            cuws2 = self.dlg.leCuws2.text()
+            crizero2 = self.dlg.leCrizero2.text()
+            cdep2 = self.dlg.leCdep2.text()
             cdif2 = self.dlg.leCdif2.text()
             cks2 = self.dlg.leCks2.text()
             line = ''.join(cc2 + ', ' + cphi2 + ', ' + czmax2 + ', ' + cuws2 + ', ' + crizero2 + ', ' + cdep2 + ', ' + cdif2 + ', ' + cks2 + '\n')
@@ -452,83 +470,64 @@ class CreateTopoindex:
             #Cfil
             line = "File name of cohesion grid (cfil)" + '\n'
             output_file.write(line)
-            line = self.dlg.mlcCfil2.currentText()
-            if line == '':
-                output_file.write("none" + "\n")
-            else:
-                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwCfil2.filePath()
+            output_file.write(line + '\n')
 
             #Phifil
             line = "File name of Phi-angle grid (phifil) " + '\n'
             output_file.write(line)
-            line = self.dlg.mlcPhifil2.currentText()
-            if line == '':
-                output_file.write("none" + "\n")
-            else:
-                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwPhifil2.filePath()
+            output_file.write(line + '\n')
 
             #Zfil
             line = "File name of depth grid (zfil)" + '\n'
             output_file.write(line)
-            line = self.dlg.mlcZfil2.currentText()
-            if line == '':
-                output_file.write("none" + "\n")
-            else:
-                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwZfil2.filePath()
+            output_file.write(line + '\n')
 
             #Uwsfil
             line = "File name of total unit weight of soil grid (uwsfil)" + '\n'
             output_file.write(line)
-            line = self.dlg.mlcUwsfil2.currentText()
-            if line == '':
-                output_file.write("none" + "\n")
-            else:
-                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwUwsfil2.filePath()
+            output_file.write(line + '\n')
 
             #Depfil
             line = "File name of initial depth of water table grid   (depfil)" + '\n'
             output_file.write(line)
-            line = self.dlg.mlcDepfil2.currentText()
-            if line == '':
-                output_file.write("none" + "\n")
-            else:
-                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwDepfil2.filePath()
+            output_file.write(line + '\n')
 
             #Diffil
             line = "File name of diffusivity grid  (diffil)" + '\n'
             output_file.write(line)
-            line = self.dlg.mlcDiffil2.currentText()
-            if line == '':
-                output_file.write("none" + "\n")
-            else:
-                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwDiffil2.filePath()
+            output_file.write(line + '\n')
 
             #Ksfil
             line = "File name of saturated hydraulic conductivity grid   (ksfil)" + '\n'
             output_file.write(line)
-            line = self.dlg.mlcKsfil2.currentText()
-            if line == '':
-                output_file.write("none" + "\n")
-            else:
-                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwKsfil2.filePath()
+            output_file.write(line + '\n')
 
             #Rizerofil
             line = "File name of initial infiltration rate grid   (rizerofil)" + '\n'
             output_file.write(line)
-            line = self.dlg.mlcRizerofil2.currentText()
-            if line == '':
-                output_file.write("none" + "\n")
-            else:
-                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwRizerofil2.filePath()
+            output_file.write(line + '\n')
 
             #Nxtfil
+            #line = "File name of grid of D8 runoff receptor cell numbers (nxtfil)" + '\n'
+            #output_file.write(line)
+            #line = self.dlg.mlcNxtfil2.currentText()
+            #if line == '':
+            #    output_file.write("none" + "\n")
+            #else:
+            #    output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+
             line = "File name of grid of D8 runoff receptor cell numbers (nxtfil)" + '\n'
             output_file.write(line)
-            line = self.dlg.mlcNxtfil2.currentText()
-            if line == '':
-                output_file.write("none" + "\n")
-            else:
-                output_file.write("c:\\TRIGRS\\data\\" + line + '.asc' + '\n')
+            line = self.dlg.fwNxtfil2.filePath()
+            output_file.write(line + '\n')
 
             #Ndxfil
             line = "File name of list of defining runoff computation order (ndxfil)" + '\n'
@@ -669,6 +668,7 @@ class CreateTopoindex:
             if layer.name() == "DEM_file":
                 QgsProject.instance().removeMapLayers([layer.id()])
         raster_layer = self.iface.addRasterLayer(layer_path, 'DEM_file')
+        raster_layer.setCrs(QgsCoordinateReferenceSystem(32748, QgsCoordinateReferenceSystem.EpsgCrsId))
         if raster_layer.isValid():
             print("Layer was loaded successfully!")
             cols = raster_layer.width()
@@ -692,6 +692,7 @@ class CreateTopoindex:
             if layer.name() == "Flow_Direction_file":
                 QgsProject.instance().removeMapLayers([layer.id()])
         raster_layer = self.iface.addRasterLayer(layer_path, 'Flow_Direction_file')
+        raster_layer.setCrs(QgsCoordinateReferenceSystem(32748, QgsCoordinateReferenceSystem.EpsgCrsId))
         if raster_layer.isValid():
             print("Layer was loaded successfully!")
             cols = raster_layer.width()
