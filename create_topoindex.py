@@ -259,10 +259,10 @@ class CreateTopoindex:
         self.dlg.fwDiffil2.setFilter("ASCI (*.asc)")
         self.dlg.fwKsfil2.setFilter("ASCI (*.asc)")
         self.dlg.fwRizerofil2.setFilter("ASCI (*.asc)")
-        self.dlg.fwNxtfil2.setFilter("ASCI (*.asc)")
-        self.dlg.fwNdxfil2.setFilter("Text File (*.txt)")
-        self.dlg.fwDscfil2.setFilter("Text File (*.txt)")
-        self.dlg.fwWffil2.setFilter("Text File (*.txt)")
+        self.dlg.fwNxtfil2.setFilter("ASCI (TIdscelGrid*.asc)")
+        self.dlg.fwNdxfil2.setFilter("Text File (TIcelindxList*.txt)")
+        self.dlg.fwDscfil2.setFilter("Text File (TIdscelList*.txt)")
+        self.dlg.fwWffil2.setFilter("Text File (TIwfactorList*.txt)")
 
         # baca layer raster dan tampilkan di QMapLayerCombobox, dan panggil method saat QMapLayerCombobox dirubah
         #self.dlg.mlcSlofil2.setFilters(QgsMapLayerProxyModel.RasterLayer)
@@ -719,8 +719,8 @@ class CreateTopoindex:
             print("Layer was loaded successfully!")
             column2 = raster_layer.width()
             row2 = raster_layer.height()
-            imax2 = 844278
-            nwf2 = 844278
+            imax2 = 309912
+            nwf2 = 309912
             self.dlg.leImax2.setText(str(imax2))
             self.dlg.leRow2.setText(str(row2))
             self.dlg.leColumn2.setText(str(column2))
